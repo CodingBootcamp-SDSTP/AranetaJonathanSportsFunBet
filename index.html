@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<title>Basketball Fun Bet</title>
+		<link rel="stylesheet" type="css/text" href="style.css"/>
+		<script>
+			window.onload = function() {
+				var sessionid = "";
+				document.getElementById('submit').onclick = function() {
+					let un = document.getElementById('username').value;
+					let pw = document.getElementById('password').value;
+					let rq = new XMLHttpRequest();
+					rq.onreadystatechange = function() {
+						if(rq.readystate == 4) {
+							sessionid = rq.responseText;
+							let sid = document.getElementById('sid');
+							sid.innerHTML = "Session ID: " + sessionid;
+						}
+					}
+					rq.open("GET", "/login?username="+un+"&password="+pw, true);
+					rq.send();
+				};
+				document.getElementById('logout').onclick = function() {
+					let rq = new XMLHttpRequest();
+					rq.onreadystatechange = function() {
+						if(rq.readyState == 4) {
+							sessionid = "";
+							document.getElementById('sid').innerHTML = "Session ID:";
+						}
+					}
+					rq.open("GET", "/logout?id="+sessionid, true);
+					rq.send();
+				};
+				let teams = document.getElementById('teams');
+				assets.onclick = function() {
+					let rq = new XMLHttpRequest();
+					rq.onreadystatechange = function() {
+						if(rq.readyState == 4) {
+						let container = document.getElementById('container');
+						container.innerHTML = "";
+						container.innerHTML = rq.responseText;
+					}
+				}
+				rq.open("GET", "/teams?id="+sessionid,true);
+				rq.send();
+			};
+			document.getElementById('addteam').onclick = function() {
+				let rq = new XMLHttpRequest();
+				rq.onreadystatechange = function() {
+					if(rq.readyState == 4) {
+
+					}
+				}
+				rq.open("POST", "/teams?id="+sessionid, true);
+				rq.setRequestHeader("Content-Type", "application/json");
+				rq.send(JSON.stringify({
+					name : document.getElementById('name').value,
+					location : document.getElementById('location').value,
+				}));
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<h1>Welcome to Basketball Fun Bet</h1>
+		<div id="header">
+			<p><input type="text" id="username" placeholder="Username"></p>
+			<p><input type="password" id="password" placeholder="Password"></p>
+			<p><input type="submit" id="submit" value="Login"/><input type="submit" id="Logout" /></p>
+			<p><input type="text" id="name" placeholder="Name" /></p>
+			<p><input type="text" id="loc" placeholder="Location" /></p>
+			<p><a href="#" id="teams">Teams</a></p>
+			<p id="sid">Session ID:</p>
+		</div>
+		<div id="container">
+		</div>
+	</body>
+</html>

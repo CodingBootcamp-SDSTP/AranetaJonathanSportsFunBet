@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<web-app>
+	<display-name>Servlet</display-name>
+	<description>Servlet App</description>
+	<servlet>
+		<servlet-name>AllPlayers</servlet-name>
+		<servlet-class>AllPlayersServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AllPlayers</servlet-name>
+		<url-pattern>/players</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AllTeams</servlet-name>
+		<servlet-class>AllTeamsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AllTeams</servlet-name>
+		<url-pattern>/teams</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AddPlayer</servlet-name>
+		<servlet-class>AddPlayerServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddPlayer</servlet-name>
+		<url-pattern>/addplayer</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AddTeam</servlet-name>
+		<servlet-class>AddTeamServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddTeam</servlet-name>
+		<url-pattern>/addteam</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Search</servlet-name>
+		<servlet-class>SearchServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Search</servlet-name>
+		<url-pattern>/search</url-pattern>
+	</servlet-mapping>
+</web-app>

@@ -11,8 +11,8 @@ public class MatchBuilder
 	}
 
 	public MatchBuilder withTeams(String hometeam, String awayteam) {
-		match.setTeamHome(homeTeam);
-		match.setTeamAway(awayTeam);
+		match.setHomeTeam(hometeam);
+		match.setAwayTeam(awayteam);
 		return this;
 	}
 

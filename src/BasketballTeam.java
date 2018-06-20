@@ -1,15 +1,11 @@
-import java.util.ArrayList;
-
 class BasketballTeam
 {
-	String name;
-	String location;
-	ArrayList<Player> players;
+	private String name;
+	private String location;
 
-	public BasketballTeam(String n, String l, ArrayList<Player> players) {
-		name = n;
-		location = l;
-		this.players = players;
+	public BasketballTeam(String name, String loc) {
+		this.name = name;
+		location = loc;
 	}
 
 	public void setName(String name) {
@@ -28,11 +24,11 @@ class BasketballTeam
 		return(location);
 	}
 
-	public void addPlayer(Player player) {
-		players.add(player);
+	public String toString() {
+		return("Name: " + name + ", Location: " + location);
 	}
 
-	public void removePlayer(Player player) {
-		players.remove(player);
+	public String getDetails() {
+		return(name + "@" + location);
 	}
 }

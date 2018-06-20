@@ -1,40 +1,33 @@
 public class Player
 {
-	private final ID;
-	private String firstName;
-	private String lastName;
+	private int ID;
+	private String name;
 	private int age;
 	private int height;
 	private int weight;
 	private String position;
+	private String team;
 
-	public Players(String id, String firstName, String lastName, int age, int h, int w, String pos) {
+	public Player(int id, String name, int age, int h, int w, String pos, String team) {
 		ID = id;
 		this.name = name;
 		this.age = age;
 		height = h;
 		weight = w;
 		position = pos;
+		this.team = team;
 	}
 
-	public getId() {
+	public int getId() {
 		return(ID);
 	}
 
-	public void setFirstName(String fn) {
-		firstName = fn;
+	public void setName(String n) {
+		name = n;
 	}
 
-	public String getFirstName() {
-		return(firstName);
-	}
-
-	public void setLastName(String ln) {
-		lastName = ln;
-	}
-
-	public String getLastName() {
-		return(lastName);
+	public String getName() {
+		return(name);
 	}
 
 	public void setAge(int age) {
@@ -61,7 +54,7 @@ public class Player
 		return(weight);
 	}
 
-	public void setPosition(int pos) {
+	public void setPosition(String pos) {
 		position = pos;
 	}
 
@@ -69,11 +62,19 @@ public class Player
 		return(position);
 	}
 
+	public void setTeam(String team) {
+		this.team = team;
+	}
+
+	public String getTeam() {
+		return(team);
+	}
+
 	public String toString() {
-		return("Jersey No.: " + ID + "\nName: " + firstName + lastName + "\nAge: " + age + "\nHeight: " + height + "\nWeight: " + weight + "\nPostion: " + position);
+		return("Jersey No.: " + ID + "\nName: " + name + "\nAge: " + age + "\nHeight: " + height + "\nWeight: " + weight + "\nPostion: " + position + "\nTeam: " + team);
 	}
 
 	public String getDetails() {
-		return(ID + "@" + firstName + "@" + lastName + "@" + age + "@" + height + "@" + weight + "@" + position + "@players");
+		return(ID + "@" + name + "@" + age + "@" + height + "@" + weight + "@" + position + "@" + team + "@players");
 	}
 }
