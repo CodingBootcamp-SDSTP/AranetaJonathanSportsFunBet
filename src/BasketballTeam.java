@@ -2,11 +2,7 @@ class BasketballTeam
 {
 	private String name;
 	private String location;
-
-	public BasketballTeam(String name, String loc) {
-		this.name = name;
-		location = loc;
-	}
+	
 
 	public void setName(String name) {
 		this.name = name;
